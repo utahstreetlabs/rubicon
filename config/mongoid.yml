@@ -1,0 +1,33 @@
+defaults: &defaults
+  host: localhost
+  port: 27017
+
+development:
+  <<: *defaults
+  database: rubicon_development
+
+test:
+  <<: *defaults
+  host: localhost 
+  database: rubicon_test
+
+staging:
+  <<: *defaults
+  hosts: [[staging2.copious.com, 27017], [staging.copious.com, 27017], [staging3.copious.com, 27017]] 
+  database: rubicon_staging
+  read_secondary: true
+  max_retries_on_connection_failure: 3
+
+demo:
+  <<: *defaults
+  host: demo1.copious.com
+  database: rubicon_demo
+
+production:
+  <<: *defaults
+  hosts: [[mongo2-9-1.copious.com, 27017], [mongo2-10-1.copious.com, 27017]]
+  database: rubicon_production
+  read_secondary: true
+  max_retries_on_connection_failure: 3
+  persist_in_safe_mode: true # guarantee durability of writes
+  logger: false

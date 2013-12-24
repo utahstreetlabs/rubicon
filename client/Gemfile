@@ -1,0 +1,27 @@
+source :rubygems
+
+gemspec
+
+# use these when you need to work with a development version of a dependency. make sure they match the
+# dependencies listed in the gemspec. this complete manual override is necessary since bundler doesn't yet know how
+# to override a single gemspec entry.
+
+#gem 'ladon', :path => '../../ladon'
+#gem 'twitter', '>= 1.6.0'
+#gem 'tumblife'
+#gem 'instagram', '0.8.2.copious'
+#gem 'mogli', path: '../../mogli'
+#gem 'faraday', '>= 0.6.1'
+#gem 'redhook', '>= 0.5.0'
+#gem 'typhoeus', '>= 0.2.4.1.copious'
+
+#group :development, :test do
+#  gem 'rake'
+#  gem 'mocha'
+#  gem 'rspec'
+#end
+
+if ENV['RUBICON_DEBUG']
+  gem 'ruby-debug19'
+  gem 'ruby-debug-base19'
+end
